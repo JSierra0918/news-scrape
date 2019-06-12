@@ -13,17 +13,21 @@ var app = express();
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static(path.join(__dirname, "./public")));
 // Parse request body as JSON
 app.use(express.urlencoded({
     extended: true
 }));
 app.use(express.json());
-app.use(express.static("public"));
+
 // Set Handlebars.
 var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({defaultLayout: "main", layoutsDir: path.join(__dirname,"views/layouts")}));
+app.engine("handlebars", exphbs({ defaultLayout: "main", layoutsDir: path.join(__dirname, "views/layouts") }));
 app.set("view engine", "handlebars");
 
+// require("./controllers/index.js")(app);
+// require("./controllers/api.js")(app);
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
@@ -31,7 +35,20 @@ mongoose.connect(MONGODB_URI);
 
 //============================ ROUTES
 app.get('/', function (req, res) {
-  res.render("index", {title: "Mongo DB Scraper"});
+       // Grab every document in the Articles collection
+       db.Article.find({})
+       // If we were able to successfully find Articles, send them back to the client
+       .then(function (dbArticle) {
+           console.log(dbArticle);
+           // res.json(dbArticle);
+           res.render("index", {
+               articles: dbArticle,
+               test: "This is BS",
+               title: "Mongo DB Scraper"
+           });
+       })
+       // .then(dbArticle => res.json(dbArticle))
+       .catch(err => res.json(err));
 });
 
 app.get("/scrape", function (req, res) {
@@ -78,13 +95,9 @@ app.get("/articles", (req, res) => {
     // Grab every document in the Articles collection
     db.Article.find({})
         // If we were able to successfully find Articles, send them back to the client
-        .then( function (dbArticle) {
-            onsole.log(dbArticle);
-            res.json(dbArticle)
-            res.render("index", {
-                articles: dbArticle,
-                test: "This is BS"
-            });
+        .then(function (dbArticle) {
+            console.log(dbArticle);
+            res.json(dbArticle);
         })
         // .then(dbArticle => res.json(dbArticle))
         .catch(err => res.json(err));
@@ -94,8 +107,8 @@ app.get("/articles", (req, res) => {
 app.get("/articles/:id", function (req, res) {
     // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
     db.Article.findOne({
-            _id: req.params.id
-        })
+        _id: req.params.id
+    })
         // ..and populate all of the notes associated with it
         .populate("note")
         .then(function (dbArticle) {
@@ -119,10 +132,10 @@ app.post("/articles/:id", function (req, res) {
             return db.Article.findOneAndUpdate({
                 _id: req.params.id
             }, {
-                note: dbNote._id
-            }, {
-                new: true
-            });
+                    note: dbNote._id
+                }, {
+                    new: true
+                });
         })
         .then(function (dbArticle) {
             // If we were able to successfully update an Article, send it back to the client
