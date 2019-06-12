@@ -1,0 +1,19 @@
+<header>
+  <h1 class="welcome-title flex-container">Mongo DB Scraper!</h1>
+</header>
+<main class="flex-main">
+  <div class="h2">Articles</div>
+  <section class="flex-ul">
+    <ul>
+      {{#each articles}}
+      <li>
+        <div class="card">
+          <h2>{{title}}</h2>
+          <p>{{summary}}</p>
+          <a href={{link}}>link to site</a>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+</main>
