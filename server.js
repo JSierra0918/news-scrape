@@ -3,7 +3,8 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const axios = require("axios");
 const cheerio = require("cheerio");
-var PORT = 3000;
+const PORT = 3000;
+const path = require("path");
 
 // Require all models
 var db = require("./models");
@@ -20,7 +21,7 @@ app.use(express.json());
 app.use(express.static("public"));
 // Set Handlebars.
 var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({defaultLayout: "main"}));
+app.engine("handlebars", exphbs({defaultLayout: "main", layoutsDir: path.join(__dirname,"views/layouts")}));
 app.set("view engine", "handlebars");
 
 
@@ -30,7 +31,7 @@ mongoose.connect(MONGODB_URI);
 
 //============================ ROUTES
 app.get('/', function (req, res) {
-  res.render("index");
+  res.render("index", {title: "Mongo DB Scraper"});
 });
 
 app.get("/scrape", function (req, res) {
@@ -73,15 +74,16 @@ app.get("/scrape", function (req, res) {
 });
 
 // Route for getting all Articles from the db
-app.get("/articles", function (req, res) {
+app.get("/articles", (req, res) => {
     // Grab every document in the Articles collection
     db.Article.find({})
         // If we were able to successfully find Articles, send them back to the client
-        .then((dbArticle) => {
-            console.log(dbArticle);
+        .then( function (dbArticle) {
+            onsole.log(dbArticle);
             res.json(dbArticle)
             res.render("index", {
-                articles: dbArticle
+                articles: dbArticle,
+                test: "This is BS"
             });
         })
         // .then(dbArticle => res.json(dbArticle))
