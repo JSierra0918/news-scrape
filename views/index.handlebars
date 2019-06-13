@@ -10,14 +10,17 @@
     <ul>
       {{#each articles}}
       <li>
-        <div class="card">
+        <div class="card" id="articles" >
           <img src="{{image}}"/>
           <h2>{{title}}</h2>
-          <p>{{summary}}</p>
+          <p {{summary}}</p>
           <a href={{link}}>link to site</a>
+          <div class="addNotes" data-id="{{_id}}">THis is the NOTES</div>
         </div>
       </li>
       {{/each}}
     </ul>
+
+    <div id="notes"></div>
   </section>
 </main>

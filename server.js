@@ -62,7 +62,7 @@ app.get("/scrape", function (req, res) {
             // Save an empty result object
             var result = {};
             result.title=$(element).find(".topics-sec-item-head").text();
-            result.summary= $(element).find(".topics-sec-item-label").next().attr('href');
+            result.summary= $(element).find(".topics-sec-item-p").text();
             result.link= $(element).find(".topics-sec-item-label").next().attr('href')
             result.image = "https://www.aljazeera.com"+ $(element).next().find('a').next().find('img').attr('data-src');
             
@@ -72,7 +72,6 @@ app.get("/scrape", function (req, res) {
                 .then(function (dbArticle) {
                     // View the added result in the console
                     console.log(dbArticle);
-           
                 })
                 .catch(function (err) {
                     // If an error occurred, log it
@@ -82,7 +81,6 @@ app.get("/scrape", function (req, res) {
             
             res.send("Scrape Complete");
         // Send a message to the client
-      
     });
 });
 
