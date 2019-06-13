@@ -4,23 +4,26 @@
   <h1 class="welcome-title flex-container">Mongo DB Scraper!</h1>
 </header>
 <main class="flex-main">
-  <div class="h2">Articles</div>
-  <section class="flex-ul">
-    <h3>{{test}}</h3>
-    <ul>
-      {{#each articles}}
-      <li>
-        <div class="card" id="articles" >
-          <img src="{{image}}"/>
-          <h2>{{title}}</h2>
-          <p {{summary}}</p>
-          <a href={{link}}>link to site</a>
-          <div class="addNotes" data-id="{{_id}}">THis is the NOTES</div>
-        </div>
-      </li>
-      {{/each}}
-    </ul>
+  <section class="left-side">
+    <div class="h2">Articles</div>
+    <section class="flex-ul">
+      <h3>{{test}}</h3>
+      <ul>
+        {{#each articles}}
+        <li>
+          <div class="card" id="articles">
+            <img src="{{image}}" />
+            <h2>{{title}}</h2>
+            <p {{summary}}</p> <a href={{link}}>link to site</a>
+              <div class="addNotes" data-id="{{_id}}">THis is the NOTES</div>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </section>
+  </section>
 
+  <section class="right-side">
     <div id="notes"></div>
   </section>
 </main>
