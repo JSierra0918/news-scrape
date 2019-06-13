@@ -25,6 +25,12 @@ var ArticleSchema = new Schema({
     type: String
   },
   // `note` is an object that stores a Note id
+  notes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Note"
+    }
+  ],
   note: {
     type: Schema.Types.ObjectId,
     ref: "Note"
