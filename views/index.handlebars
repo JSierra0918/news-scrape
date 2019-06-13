@@ -1,3 +1,5 @@
+<title>{{title}}</title>
+
 <header>
   <h1 class="welcome-title flex-container">Mongo DB Scraper!</h1>
 </header>
@@ -9,6 +11,7 @@
       {{#each articles}}
       <li>
         <div class="card">
+          <img src="{{image}}"/>
           <h2>{{title}}</h2>
           <p>{{summary}}</p>
           <a href={{link}}>link to site</a>

@@ -53,29 +53,20 @@ app.get('/', function (req, res) {
 
 app.get("/scrape", function (req, res) {
     // First, we grab the body of the html with axios
-    axios.get("https://www.nytimes.com/section/us").then(function (response) {
+    axios.get("https://www.aljazeera.com/news/").then(function (response) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
         var $ = cheerio.load(response.data);
 
         // Now, we grab every h2 within an article tag, and do the following:
-        $(".css-13mho3u").each(function (i, element) {
+        $("div .topics-sec-item-cont").each(function (i, element) {
             // Save an empty result object
             var result = {};
-            result.title= $(this).find('.css-4jyr1y>a>h2').text();
-            result.summary= $(this).find('.css-4jyr1y>a>p').text();
-            result.link= $(this).find('.css-4jyr1y>a').attr('href');
+            result.title=$(element).find(".topics-sec-item-head").text();
+            result.summary= $(element).find(".topics-sec-item-label").next().attr('href');
+            result.link= $(element).find(".topics-sec-item-label").next().attr('href')
+            result.image = "https://www.aljazeera.com"+ $(element).next().find('a').next().find('img').attr('data-src');
             
-            // Add the text and href of every link, and save them as properties of the result object
-            // result.title = $(this)
-            //     .children("h2")
-            //     .text();
-            // result.link = $(this)
-            //     .children("a")
-            //     .attr("href");
-            // result.summary = $(this)
-            //     .children("p")
-            //     .text();
-
+            console.log(result.title);
             // Create a new Article using the `result` object built from scraping
             db.Article.create(result)
                 .then(function (dbArticle) {
@@ -87,9 +78,9 @@ app.get("/scrape", function (req, res) {
                     // If an error occurred, log it
                     console.log(err);
                 });
-                res.send("Scrape Complete");
-        });
-
+            });
+            
+            res.send("Scrape Complete");
         // Send a message to the client
       
     });
