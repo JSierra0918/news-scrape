@@ -1,19 +1,102 @@
-li {
-  padding: 5px;
-  margin: 5px;
-  background: #faebd7;
+body {
+  margin: 0px;
+  background: #dadada;
 }
 
-.label {
-  font-weight: bold;
+.article {
+  text-align: center;
+  font-size: 3em;
+  margin: 0px;
 }
 
-.create-update-form {
-  padding: 5px;
-  margin: 5px;
-  background: aqua;
+.btn-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
 }
 
-.form-group {
-  margin-bottom: 5px;
+.btn-section .scrapeBtn {
+  margin-top: 3em;
+  font-size: 1.2em;
+  height: 3em;
+  background: #FF9800;
+  border: none;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  margin: 0px;
 }
+
+.btn-section .scrapeBtn:hover {
+  cursor: pointer;
+  background: #ffe601;
+}
+
+.flex-container {
+  text-align: center;
+  font-size: 3em;
+}
+
+.flex-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.flex-main .left-side {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+.flex-main .right-side {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.flex-main .flex-ul .card {
+  background: #fff;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-main .flex-ul .card .article-container {
+  padding: 20px;
+}
+
+.flex-main .flex-ul .card .article-container .notes-container {
+  bottom: 0px;
+  left: 0px;
+}
+
+.flex-main .flex-ul .card .article-container .notes-container .circle {
+  margin-top: 20px;
+  position: relative;
+  background: cyan;
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.flex-main .flex-ul .card .article-container .notes-container .circle:hover {
+  cursor: pointer;
+  background: #27fafa;
+  border: 3px solid rebeccapurple;
+}
+
+.flex-main .flex-ul .card img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 220px;
+}
+/*# sourceMappingURL=style.css.map */

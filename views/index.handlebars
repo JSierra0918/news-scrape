@@ -2,17 +2,15 @@
 
 <header>
   <h1 class="welcome-title flex-container">Mongo DB Scraper!</h1>
- <a href="/scrape" class="scrape">SCRAPE BTN</a>
-      <form action="/scrape" method="GET" class="scrape">
-        <button type="submit" class="scrapeBtn" >SCRAPE for ARTICLES</button>
-      </form>
+  <h2 class="article">Articles:</h2>
 </header>
-
-
+<section class="btn-section">
+  <form action="/scrape" method="GET" class="scrape">
+    <button type="submit" class="scrapeBtn">Scrape for New Articles</button>
+  </form>
+</section>
 <main class="flex-main">
-
   <section class="left-side">
-    <div class="h2">Articles</div>
     <section class="flex-ul">
       <h3>{{test}}</h3>
       <ul>
@@ -20,12 +18,15 @@
         <li>
           <div class="card" id="articles">
             <img src="{{image}}" />
-            <h2>{{title}}</h2>
-            <p {{summary}}</p> <a href={{link}}>link to site</a>
+            <div class="article-container">
+              <h2>{{title}}</h2>
+              <p>{{summary}}</p> <a href={{link}}>link to site</a>
               <div class="notes-container">
-                <div class="addNotes" data-id="{{_id}}">THis is the NOTES</div>
-                <div class="delete">X</div>
+                <div class="circle">
+                  <div class="addNotes" data-id="{{_id}}"> + Notes</div>
+                </div>
               </div>
+            </div>
           </div>
         </li>
         {{/each}}
@@ -35,5 +36,10 @@
 
   <section class="right-side">
     <div id="notes"></div>
+    <div id="noteShow">
+      <h2>This is h2 title </h2>
+      <p>This is paragraph</p>
+      <div class="delete-container" data-id="{{_id}}"></div>
+    </div>
   </section>
 </main>

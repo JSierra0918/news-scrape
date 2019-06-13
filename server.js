@@ -23,7 +23,10 @@ app.use(express.json());
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main", layoutsDir: path.join(__dirname, "views/layouts") }));
+app.engine("handlebars", exphbs({
+    defaultLayout: "main",
+    layoutsDir: path.join(__dirname, "views/layouts")
+}));
 app.set("view engine", "handlebars");
 
 // require("./controllers/index.js")(app);
@@ -35,20 +38,20 @@ mongoose.connect(MONGODB_URI);
 
 //============================ ROUTES
 app.get('/', function (req, res) {
-       // Grab every document in the Articles collection
-       db.Article.find({})
-       // If we were able to successfully find Articles, send them back to the client
-       .then(function (dbArticle) {
-           console.log(dbArticle);
-           // res.json(dbArticle);
-           res.render("index", {
-               articles: dbArticle,
-               test: "This is BS",
-               title: "Mongo DB Scraper"
-           });
-       })
-       // .then(dbArticle => res.json(dbArticle))
-       .catch(err => res.json(err));
+    // Grab every document in the Articles collection
+    db.Article.find({})
+        // If we were able to successfully find Articles, send them back to the client
+        .then(function (dbArticle) {
+            console.log(dbArticle);
+            // res.json(dbArticle);
+            res.render("index", {
+                articles: dbArticle,
+                test: "This is BS",
+                title: "Mongo DB Scraper"
+            });
+        })
+        // .then(dbArticle => res.json(dbArticle))
+        .catch(err => res.json(err));
 });
 
 app.get("/scrape", function (req, res) {
@@ -61,11 +64,11 @@ app.get("/scrape", function (req, res) {
         $("div .topics-sec-item-cont").each(function (i, element) {
             // Save an empty result object
             var result = {};
-            result.title=$(element).find(".topics-sec-item-head").text();
-            result.summary= $(element).find(".topics-sec-item-p").text();
-            result.link= $(element).find(".topics-sec-item-label").next().attr('href')
-            result.image = "https://www.aljazeera.com"+ $(element).next().find('a').next().find('img').attr('data-src');
-            
+            result.title = $(element).find(".topics-sec-item-head").text();
+            result.summary = $(element).find(".topics-sec-item-p").text();
+            result.link = $(element).find(".topics-sec-item-label").next().attr('href')
+            result.image = "https://www.aljazeera.com" + $(element).next().find('a').next().find('img').attr('data-src');
+
             console.log(result.title);
             // Create a new Article using the `result` object built from scraping
             db.Article.create(result)
@@ -77,9 +80,8 @@ app.get("/scrape", function (req, res) {
                     // If an error occurred, log it
                     console.log(err);
                 });
-            });
-            
-            res.send("Scrape Complete");
+        });
+        res.send("Scrape Complete");
         // Send a message to the client
     });
 });
@@ -98,25 +100,25 @@ app.get("/articles", (req, res) => {
 });
 
 // Route for retrieving all Notes from the db
-app.get("/notes", function(req, res) {
+app.get("/notes", function (req, res) {
     // Find all Notes
     db.Note.find({})
-      .then(function(dbNote) {
-        // If all Notes are successfully found, send them back to the client
-        res.json(dbNote);
-      })
-      .catch(function(err) {
-        // If an error occurs, send the error back to the client
-        res.json(err);
-      });
-  });
+        .then(function (dbNote) {
+            // If all Notes are successfully found, send them back to the client
+            res.json(dbNote);
+        })
+        .catch(function (err) {
+            // If an error occurs, send the error back to the client
+            res.json(err);
+        });
+});
 
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function (req, res) {
     // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
     db.Article.findOne({
-        _id: req.params.id
-    })
+            _id: req.params.id
+        })
         // ..and populate all of the notes associated with it
         .populate("note")
         .then(function (dbArticle) {
@@ -139,7 +141,13 @@ app.post("/articles/:id", function (req, res) {
             // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
             // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
             // return db.Article.findOneAndUpdate({_id: req.params.id}, {$push: {notes: dbNote._id}}, {new: true});
-            return db.Article.findOneAndUpdate({_id: req.params.id}, {note: dbNote._id}, {new: true});
+            return db.Article.findOneAndUpdate({
+                _id: req.params.id
+            }, {
+                note: dbNote._id
+            }, {
+                new: true
+            });
         })
         .then(function (dbArticle) {
             // If we were able to successfully update an Article, send it back to the client
