@@ -22,7 +22,10 @@
             <img src="{{image}}" />
             <h2>{{title}}</h2>
             <p {{summary}}</p> <a href={{link}}>link to site</a>
-              <div class="addNotes" data-id="{{_id}}">THis is the NOTES</div>
+              <div class="notes-container">
+                <div class="addNotes" data-id="{{_id}}">THis is the NOTES</div>
+                <div class="delete">X</div>
+              </div>
           </div>
         </li>
         {{/each}}
