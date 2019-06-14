@@ -66,7 +66,7 @@ app.get("/scrape", function (req, res) {
             var result = {};
             result.title = $(element).find(".topics-sec-item-head").text();
             result.summary = $(element).find(".topics-sec-item-p").text();
-            result.link = $(element).find(".topics-sec-item-label").next().attr('href')
+            result.link = "https://www.aljazeera.com" + $(element).find(".topics-sec-item-label").next().attr('href')
             result.image = "https://www.aljazeera.com" + $(element).next().find('a').next().find('img').attr('data-src');
 
             console.log(result.title);

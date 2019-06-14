@@ -23,8 +23,13 @@ function viewNotes (){
         console.log(data.note);
         // Place the title of the note in the title input
 
-        $("#noteShow").append(`<div class="note-container"> <h2>${data.note.title}</h2> <p>${data.note.body}</p></div>`);
-        $(".delete-container").append(`<div id="x-btn">X</div> `);
+        $("#noteShow").append(`
+        <div class="note-container">
+            <h2>${data.note.title}</h2> 
+            <p>${data.note.body}</p>
+            <div id="x-btn">X</div>
+         </div> 
+         `);
         // $("#titleinput").val(data.note.title);
         // Place the body of the note in the body textarea
         // $("#bodyinput").val(data.note.body);
@@ -39,12 +44,6 @@ function viewNotes (){
           $("#titleOutput").val(data.note.title);
           $("#bodyOutput").val(data.note.body);  
         });
-        // Place the title of the note in the title input
-        
-        // Place the body of the note in the body textarea
-        
-
-        //create a div where it shows all notes added to the article.
       }
     });
 }
