@@ -1,0 +1,120 @@
+body {
+    margin: 0px;
+    background: rgb(218, 218, 218);
+}
+
+.article {
+    text-align: center;
+    font-size: 3em;
+    margin: 0px;
+}
+
+.btn-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    .scrapeBtn {
+        margin-top: 3em;
+        font-size: 1.2em;
+        height: 3em;
+        background: #FF9800;
+        border: none;
+        transition: all .3s;
+        margin: 0px;
+
+        &:hover {
+            cursor: pointer;
+            background: rgb(255, 230, 1);
+        }
+    }
+
+}
+
+.flex-container {
+    text-align: center;
+    font-size: 3em;
+}
+
+.flex-main {
+    display: flex;
+    transition: all .3s;
+
+    .left-side {
+        flex: 3;
+
+        .flex-ul {
+
+            .card {
+                background: #fff;
+                margin-bottom: 10px;
+                display: flex;
+
+
+                .article-container {
+                    padding: 20px;
+
+                    // position: relative;
+                    .notes-container {
+                        background: white;
+                        padding: 20px;
+                        border-radius: 5px;
+                        margin-bottom: 10px;
+
+                        .circle {
+                            margin-top: 20px;
+                            position: relative;
+                            background: cyan;
+                            height: 2em;
+                            width: 2em;
+                            border-radius: 50%;
+                            transition: all .3s;
+
+                            &:hover {
+                                cursor: pointer;
+                                background: rgb(39, 250, 250);
+                                border: 3px solid rebeccapurple;
+                            }
+                        }
+                    }
+                }
+
+                img {
+                    object-fit: cover;
+                    width: 220px;
+                }
+            }
+        }
+    }
+
+
+    .right-side {
+        flex: 1;
+
+        .note-container {
+            position: relative;
+            background: rgb(247, 247, 247);
+            border-radius: 5px;
+            padding: 20px;
+
+            h2 {
+                margin: 0;
+            }
+
+            #x-btn {
+                background: rgb(224, 35, 10);
+                text-align: center;
+                padding: 10px;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                transition: all .3s;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+      
+    }
+}
