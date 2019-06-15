@@ -5,9 +5,9 @@
   <h2 class="article">Articles:</h2>
 </header>
 <section class="btn-section">
-  <form action="/scrape" method="GET" class="scrape">
-    <button type="submit" class="scrapeBtn">Scrape for New Articles</button>
-  </form>
+
+  <button type="submit" class="scrapeBtn">Scrape for New Articles</button>
+
 </section>
 <main class="flex-main">
   <section class="left-side">
@@ -24,6 +24,12 @@
               <div class="notes-container">
                 <div class="circle">
                   <div class="addNotes" data-id="{{_id}}"> + Notes</div>
+                </div>
+                <div class="circle">
+                  <div class="saveArticle" data-id="{{_id}}"> Save Article</div>
+                </div>
+                <div class="circle">
+                  <div id="delete" data-id="{{_id}}">Delete Article</div>
                 </div>
               </div>
             </div>
