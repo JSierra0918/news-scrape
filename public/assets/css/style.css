@@ -54,7 +54,11 @@ body {
           flex: 3;
 }
 
-.flex-main .left-side .flex-ul .card {
+.flex-main .left-side .flex-ul ul {
+  list-style: none;
+}
+
+.flex-main .left-side .flex-ul ul .card {
   background: #fff;
   margin-bottom: 10px;
   display: -webkit-box;
@@ -62,18 +66,18 @@ body {
   display: flex;
 }
 
-.flex-main .left-side .flex-ul .card .article-container {
+.flex-main .left-side .flex-ul ul .card .article-container {
   padding: 20px;
 }
 
-.flex-main .left-side .flex-ul .card .article-container .notes-container {
+.flex-main .left-side .flex-ul ul .card .article-container .notes-container {
   background: white;
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 10px;
 }
 
-.flex-main .left-side .flex-ul .card .article-container .notes-container .circle {
+.flex-main .left-side .flex-ul ul .card .article-container .notes-container .circle {
   margin-top: 20px;
   position: relative;
   background: cyan;
@@ -84,13 +88,13 @@ body {
   transition: all .3s;
 }
 
-.flex-main .left-side .flex-ul .card .article-container .notes-container .circle:hover {
+.flex-main .left-side .flex-ul ul .card .article-container .notes-container .circle:hover {
   cursor: pointer;
   background: #27fafa;
   border: 3px solid rebeccapurple;
 }
 
-.flex-main .left-side .flex-ul .card img {
+.flex-main .left-side .flex-ul ul .card img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 220px;

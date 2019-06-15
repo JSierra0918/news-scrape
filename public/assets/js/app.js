@@ -22,14 +22,19 @@ function viewNotes (){
       if (data.note) {
         console.log(data.note);
         // Place the title of the note in the title input
-
-        $("#noteShow").append(`
-        <div class="note-container">
-            <h2>${data.note.title}</h2> 
-            <p>${data.note.body}</p>
-            <div id="x-btn">X</div>
-         </div> 
-         `);
+        if(data._id === data.note._id){
+            return;
+        }else {
+            $("#noteShow").append(`
+            <div class="note-container">
+                <h2>${data.note.title}</h2> 
+                <p>${data.note.body}</p>
+                <div id="x-btn">X</div>
+             </div> 
+             `);
+        }
+        
+      
         // $("#titleinput").val(data.note.title);
         // Place the body of the note in the body textarea
         // $("#bodyinput").val(data.note.body);

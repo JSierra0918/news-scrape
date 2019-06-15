@@ -45,43 +45,47 @@ body {
 
         .flex-ul {
 
-            .card {
-                background: #fff;
-                margin-bottom: 10px;
-                display: flex;
+            ul {
+                list-style: none;
+
+                .card {
+                    background: #fff;
+                    margin-bottom: 10px;
+                    display: flex;
 
 
-                .article-container {
-                    padding: 20px;
-
-                    // position: relative;
-                    .notes-container {
-                        background: white;
+                    .article-container {
                         padding: 20px;
-                        border-radius: 5px;
-                        margin-bottom: 10px;
 
-                        .circle {
-                            margin-top: 20px;
-                            position: relative;
-                            background: cyan;
-                            height: 2em;
-                            width: 2em;
-                            border-radius: 50%;
-                            transition: all .3s;
+                        // position: relative;
+                        .notes-container {
+                            background: white;
+                            padding: 20px;
+                            border-radius: 5px;
+                            margin-bottom: 10px;
 
-                            &:hover {
-                                cursor: pointer;
-                                background: rgb(39, 250, 250);
-                                border: 3px solid rebeccapurple;
+                            .circle {
+                                margin-top: 20px;
+                                position: relative;
+                                background: cyan;
+                                height: 2em;
+                                width: 2em;
+                                border-radius: 50%;
+                                transition: all .3s;
+
+                                &:hover {
+                                    cursor: pointer;
+                                    background: rgb(39, 250, 250);
+                                    border: 3px solid rebeccapurple;
+                                }
                             }
                         }
                     }
-                }
 
-                img {
-                    object-fit: cover;
-                    width: 220px;
+                    img {
+                        object-fit: cover;
+                        width: 220px;
+                    }
                 }
             }
         }
@@ -115,6 +119,6 @@ body {
                 }
             }
         }
-      
+
     }
 }
