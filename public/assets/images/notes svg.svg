@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
+<style type="text/css">
+	.circleSVG{fill:#6FCDE0;}
+	.st1{fill:#FFFFFF;}
+	.st2{font-family:'MyriadPro-Regular';}
+	.st3{font-size:7px;}
+	.st4{font-size:4.4381px;}
+</style>
+<g id="circle">
+	<circle class="circleSVG" cx="140" cy="124" r="9.9"/>
+	<path class="st1" d="M140,114.3c5.4,0,9.7,4.4,9.7,9.7c0,5.4-4.4,9.7-9.7,9.7s-9.7-4.4-9.7-9.7C130.3,118.6,134.6,114.3,140,114.3
+		 M140,114c-5.5,0-10,4.5-10,10c0,5.5,4.5,10,10,10s10-4.5,10-10C150,118.5,145.5,114,140,114L140,114z"/>
+</g>
+<text id="notes" transform="matrix(0.9952 0 0 1 132.092 126.0544)"><tspan x="0" y="0" class="st1 st2 st3">+</tspan><tspan x="4.2" y="0" class="st1 st2 st4"> Notes</tspan></text>
+</svg>

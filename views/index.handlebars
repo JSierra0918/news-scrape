@@ -12,7 +12,6 @@
 <main class="flex-main">
   <section class="left-side">
     <section class="flex-ul">
-      <h3>{{test}}</h3>
       <ul>
         {{#each articles}}
         <li>
@@ -20,13 +19,19 @@
             <img src="{{image}}" />
             <div class="article-container">
               <h2>{{title}}</h2>
-              <p>{{summary}}</p> <a href={{link}}>link to site</a>
+              <p>{{summary}}</p> <a class="linkStyle" href={{link}}>Go to Site:</a>
               <div class="notes-container">
                 <div class="circle">
                   <div class="addNotes" data-id="{{_id}}"> + Notes</div>
                 </div>
               </div>
             </div>
+          </div>
+          <div id="notes"></div>
+          <div id="noteShow">
+            <h2>This is h2 title </h2>
+            <p>This is paragraph</p>
+            <div class="delete-container" data-id="{{_id}}"></div>
           </div>
         </li>
         {{/each}}
