@@ -79,6 +79,24 @@ function saveNotes() {
   $("#bodyinput").val("");
 }
 
+//delete article
+$(document).on('click', '#delete', function () {
+  console.log("in the #delete on click")
+  var noteid = $(this).attr("data-id");
+  var articleid = $(this).attr("data-id");
+  
+  console.log("note-delete");
+  $.ajax({
+          method: "DELETE",
+          url: "/articles/" + articleid
+          // url: "/notes/" + noteid + "/" + articleid
+      })
+      .done(function (note) {
+        console.log("Deleted Article");
+          location.reload();
+      });
+});
+
 
 // FUNCTIONS ==================
 //if you click outside notes, remove it.
@@ -99,6 +117,7 @@ console.log("scrape")
   $.get("/scrape", function (response){
     console.log(response);
     
+    location.reload();
   })
 
 });

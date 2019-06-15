@@ -39,7 +39,7 @@ mongoose.connect(MONGODB_URI);
 //============================ ROUTES
 app.get('/', function (req, res) {
 
-    
+
     // Grab every document in the Articles collection
     db.Article.find({})
         // If we were able to successfully find Articles, send them back to the client
@@ -160,6 +160,18 @@ app.post("/articles/:id", function (req, res) {
             res.json(err);
         });
 });
+
+app.delete("/articles/:id", function (req, res) {
+    db.Article.deleteOne({
+            _id: req.params.id
+        }).then(function (data) {
+            
+            res.json(data);
+        })
+        .catch(function (err) {
+            console.log(err)
+        })
+})
 
 
 //============================ END ROUTES
