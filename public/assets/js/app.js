@@ -12,28 +12,35 @@ function viewNotes (){
     
       $("#notes").append("<h2>" + data.title + "</h2>");
       // An input to enter a new title
-      $("#notes").append("<input id='titleinput' name='title' >");
+      $("#notes").append("<input id='titleinput' name='title' placeholder='title'>");
       // A textarea to add a new note body
-      $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
+      $("#notes").append("<textarea id='bodyinput' name='body' placeholder='notes'></textarea>");
       // A button to submit a new note, with the id of the article saved to it
       $("#notes").append("<button data-id='" + data._id + "' id='saveNote'>Save Note</button>");
 
       // If there's a note in the article
       if (data.note) {
-        console.log(data.note);
+        // console.log(data.note);
         // Place the title of the note in the title input
 
-        $("#noteShow").append(`
-        <div class="note-container">
-            <h2>${data.note.title}</h2> 
-            <p>${data.note.body}</p>
-            <div id="x-btn">X</div>
-         </div> 
-         `);
-        // $("#titleinput").val(data.note.title);
-        // Place the body of the note in the body textarea
-        // $("#bodyinput").val(data.note.body);
+        console.log($(this).text())
+        //only append new notes
+        if ($(".note-container h2").text() === data.note.title){
+            return;
+        }else {
 
+          $("#noteShow").append(`
+          <div class="note-container">
+              <h2>${data.note.title}</h2> 
+              <p>${data.note.body}</p>
+              <div id="x-btn">X</div>
+           </div> 
+           `);
+        }
+
+
+    
+         console.log()
         //create a div where it shows all notes added to the article.
       } 
 
@@ -73,7 +80,15 @@ function saveNotes (){
 }
 
 
-//on click note button
+// FUNCTIONS ==================
+//if you click outside notes, remove it.
+$(window).on("click", function(e) {
+  console.log(e.target)
+  if($(e.target) !== $("#notes")) {
+    $("#notes").empty()
+  }
+});
+
 $(document).on("click",".addNotes", viewNotes);
 $(document).on("click","#saveNote", saveNotes);
 $(document).on("click","#deleteNote", saveNotes);
