@@ -38,6 +38,8 @@ mongoose.connect(MONGODB_URI);
 
 //============================ ROUTES
 app.get('/', function (req, res) {
+
+    
     // Grab every document in the Articles collection
     db.Article.find({})
         // If we were able to successfully find Articles, send them back to the client

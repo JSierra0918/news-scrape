@@ -9,12 +9,14 @@ var ArticleSchema = new Schema({
   // `title` is required and of type String
   title: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   // summary is required to give a brevity of the artical
   summary: {
     type: String,
     required: true
+  
   },
   // `link` is required and of type String
   link: {
