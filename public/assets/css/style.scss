@@ -27,6 +27,34 @@ body {
             cursor: pointer;
             background: rgb(255, 230, 1);
         }
+
+    .savedBtn {
+        margin-top: 3em;
+        font-size: 1.2em;
+        height: 3em;
+        background: #FF9800;
+        border: none;
+        transition: all .3s;
+        margin: 0px;
+
+        &:hover {
+            cursor: pointer;
+            background: rgb(255, 230, 1);
+        }
+
+    .homeBtn {
+        margin-top: 3em;
+        font-size: 1.2em;
+        height: 3em;
+        background: #FF9800;
+        border: none;
+        transition: all .3s;
+        margin: 0px;
+
+        &:hover {
+            cursor: pointer;
+            background: rgb(255, 230, 1);
+        }
     }
 
 }

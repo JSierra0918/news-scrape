@@ -176,6 +176,63 @@ app.delete("/articles/:id", function (req, res) {
 })
 
 
+//route for saving articles 
+app.post("/saved/:id", function (req, res) {
+    console.log(req)
+    db.Article.findOne({
+      _id : req.params.id
+    }).
+    then(function(dbSaved) {
+          console.log(dbSaved)
+
+          var savedArticle = {}
+
+          savedArticle.title = dbSaved.title,
+          savedArticle.summary = dbSaved.summary,
+          savedArticle.link = dbSaved.link,
+          savedArticle.image = dbSaved.image
+        
+          db.Saved.create(savedArticle)
+          .then(function(result) {
+            console.log(result)
+            console.log("\n-----article was added to saved collection-----\n");
+            res.json(result);
+          })
+          .catch(function(err) {
+            // If an error occurred, log it
+            console.log(err);
+          });
+      })
+  })
+
+// route to delete saved article
+  app.delete("/saved/:id", function (req, res) {
+    db.Save.deleteOne({
+      _id : req.params.id
+    }).then(function(deleted){
+      console.log("\n-----the following article has been deleted-----\n")
+      // console.log(deleted)
+      res.send("shit is gone")
+      res.json(deleted)
+      
+    }).catch(function(err) {
+      console.log(err)
+    })
+  })
+
+//route for loading the saved data  
+  app.get('/saved', function(req, res){
+    db.Saved.find({}, function(err, data) {
+      if(err) {
+          console.log(err)
+      } else {
+          var SavedObject = {saved: data}
+        //   res.render('index')
+          res.render("saved", SavedObject)
+      }
+    })
+  })
+
 //============================ END ROUTES
 
 // Start the server

@@ -1,7 +1,7 @@
 let rightSide = true;
 
 function viewNotes() {
-  
+
   // Empty the notes from the note section
   $("#notes").empty();
   // Save the id from the p tag
@@ -78,42 +78,68 @@ function saveNotes() {
   $("#bodyinput").val("");
 }
 
+function saveArticles() {
+    console.log("in .save onclick")
+    console.log($(this).attr("data-id"))
+
+    var thisId = $(this).attr("data-id");
+
+    console.log("Saving the File")
+    const savedArticle = {
+        // Values taken from the article 
+        title: $(".title").val(),
+        summary: $(".summary").val(),
+        link: $(".link").val(),
+        image: $(".image").val()
+      }
+
+      $.post(`/saved/${thisId}`, savedArticle, (err) => console.log(err))
+      // With that done
+      .then((data) => {
+        console.log("Article Saved!")
+        // Log the response
+        console.log(data);
+      });
+
+}
+
 //delete article
 $(document).on('click', '.delete', function () {
   console.log("in the #delete on click");
   var noteid = $(this).attr("data-id");
   var articleid = $(this).attr("data-id");
-  
+
   console.log("note-delete");
   $.ajax({
-          method: "DELETE",
-          url: "/articles/" + articleid
-          // url: "/notes/" + noteid + "/" + articleid
-      })
-      .done(function (note) {
-        console.log("Deleted Article");
-          location.reload();
-      });
+      method: "DELETE",
+      url: "/articles/" + articleid
+      // url: "/notes/" + noteid + "/" + articleid
+    })
+    .done(function (note) {
+      console.log("Deleted Article");
+      location.reload();
+    });
 });
 
 //if you click outside notes, remove it.
 $(window).on("click", function (e) {
   if (event.target.closest("#notes")) {
     return;
-  }else {
+  } else {
     $(".notes-div").empty();
   }
 });
 
 $(document).on("click", ".addNotes", viewNotes);
 $(document).on("click", "#saveNote", saveNotes);
+$(document).on("click", ".saveArticle", saveArticles);
 $(document).on("click", "#deleteNote", saveNotes);
 $(document).on("click", ".scrapeBtn", function (event) {
   event.preventDefault();
-console.log("scrape")
-  $.get("/scrape", function (response){
+  console.log("scrape")
+  $.get("/scrape", function (response) {
     console.log(response);
-    
+
     location.reload();
   })
 

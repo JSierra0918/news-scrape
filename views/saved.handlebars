@@ -6,30 +6,26 @@
 </header>
 <section class="btn-section">
 
-  <button type="submit" class="scrapeBtn">Scrape for New Articles</button>
-  <a href="/saved" class="savedBtn">Saved Articles</a>
+  <a href="/" class="homeBtn">Home</a>
 
 </section>
 <main class="flex-main">
   <section class="left-side">
     <section class="flex-ul">
       <ul>
-        {{#each articles}}
+        {{#each saved}}
         <li>
           <div class="card" id="articles">
-            <img src="{{image}}" class="image" />
+            <img src="{{image}}" />
             <div class="article-container">
-              <h2 class="title">{{title}}</h2>
-              <p class="summary">{{summary}}</p> <a href={{link}} class="siteLink">Check out the Article</a>
+              <h2>{{title}}</h2>
+              <p>{{summary}}</p> <a href={{link}} class="siteLink">Check out the Article</a>
               <div class="notes-container">
                 <a href="#notes">
                 <div class="circle">
                   <div class="addNotes" data-id="{{_id}}"> Add a Note</div>
                 </div>
                 </a>
-                <div class="circle">
-                  <div class="saveArticle" data-id="{{_id}}">Save Article</div>
-                </div>
                 <div class="circle">
                   <div class="delete" data-id="{{_id}}">Delete Article</div>
                 </div>
@@ -41,7 +37,7 @@
       </ul>
     </section>
   </section>
-
+    
   <section class="right-side">
     <div class="notes-div"></div>
   </section>
