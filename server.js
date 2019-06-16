@@ -11,6 +11,8 @@ var db = require("./models");
 // Initialize Express
 var app = express();
 
+//TODO: GET SAVED ARTICLES WORKING
+
 // Use morgan logger for logging requests
 app.use(logger("dev"));
 // Serve static content for the app from the "public" directory in the application directory.

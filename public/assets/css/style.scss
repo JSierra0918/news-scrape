@@ -39,9 +39,11 @@ body {
 .flex-main {
     display: flex;
     transition: all .3s;
+    padding: 5px;
 
     .left-side {
-        flex: 3;
+        flex: 2;
+        margin: 5px;
 
         .flex-ul {
 
@@ -50,32 +52,56 @@ body {
                 margin-bottom: 10px;
                 display: flex;
 
+                .siteLink {
+                    text-decoration: none;
+                    color: orange;
+                    transition: all .3s;
+
+                    &:hover {
+                        text-decoration: underline;
+                        text-decoration: none;
+                        border: solid 2px #FF9800;
+                        padding: 5px;
+                        box-sizing: border-box;
+
+                        background: #FF9800;
+                        color: white;
+                    }
+                }
 
                 .article-container {
                     padding: 20px;
 
                     // position: relative;
                     .notes-container {
-                        background: white;
                         padding: 20px;
                         border-radius: 5px;
                         margin-bottom: 10px;
                         display: flex;
                         justify-content: space-around;
 
+                        a {
+                            text-decoration: none;
+                        }
+
                         .circle {
-                            margin-top: 20px;
-                            position: relative;
-                            background: cyan;
-                            height: 2em;
-                            width: 2em;
+                            // height: 2em;
+                            width: 5em;
+                            padding: 10px;
+                            display: table-cell;
+                            text-align: center;
+                            vertical-align: middle;
                             border-radius: 50%;
+                            background: rgb(39, 250, 250);
                             transition: all .3s;
+                            position: relative;
+                            box-sizing: border-box;
+                            transform: scale(.7);
 
                             &:hover {
                                 cursor: pointer;
-                                background: rgb(39, 250, 250);
-                                border: 3px solid rebeccapurple;
+                                transform: scale(.8);
+                                color: white;
                             }
                         }
                     }
@@ -92,6 +118,53 @@ body {
 
     .right-side {
         flex: 1;
+        margin: 5px;
+
+        #notes {
+            background: #F9F9F9;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+            h2 {
+                display: block;
+                font-size: 30px;
+                font-weight: 300;
+                margin-bottom: 10px;
+            }
+
+            input {
+                border: medium none !important;
+                margin: 0 0 10px;
+                min-width: 100%;
+                padding: 0;
+                width: 100%;
+            }
+
+            textarea {
+                height: 100px;
+                width: 100%;
+                border: none;
+                resize: none;
+            }
+
+            #saveNote {
+                cursor: pointer;
+                width: 100%;
+                border: none;
+                background: #4CAF50;
+                color: #FFF;
+                margin: 0 0 5px;
+                padding: 10px;
+                font-size: 15px;
+
+                &:hover {
+                    background: #43A047;
+                    transition: background-color 0.3s ease-in-out;
+                }
+            }
+
+        }
 
         .note-container {
             position: relative;
@@ -101,7 +174,10 @@ body {
 
 
             h2 {
-                margin: 0;
+                margin: 5px 0 15px;
+                display: block;
+                font-size: 2em;
+                font-weight: bold;
             }
 
             #x-btn {

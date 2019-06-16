@@ -1,4 +1,7 @@
+let rightSide = true;
+
 function viewNotes() {
+  
   // Empty the notes from the note section
   $("#notes").empty();
   // Save the id from the p tag
@@ -9,6 +12,7 @@ function viewNotes() {
     .then(function (data) {
       console.log(data.note);
       // The title of the article
+      $(".notes-div").append(`<div id="notes"></div>`)
 
       $("#notes").append("<h2>" + data.title + "</h2>");
       // An input to enter a new title
@@ -29,7 +33,7 @@ function viewNotes() {
           return;
         } else {
 
-          $("#noteShow").append(`
+          $(".notes-div").append(`
           <div class="note-container">
               <h2>${data.note.title}</h2> 
               <p>${data.note.body}</p>
@@ -37,11 +41,6 @@ function viewNotes() {
            </div> 
            `);
         }
-
-
-
-        console.log()
-        //create a div where it shows all notes added to the article.
       }
 
       if (data.notes) {
@@ -80,8 +79,8 @@ function saveNotes() {
 }
 
 //delete article
-$(document).on('click', '#delete', function () {
-  console.log("in the #delete on click")
+$(document).on('click', '.delete', function () {
+  console.log("in the #delete on click");
   var noteid = $(this).attr("data-id");
   var articleid = $(this).attr("data-id");
   
@@ -97,14 +96,12 @@ $(document).on('click', '#delete', function () {
       });
 });
 
-
-// FUNCTIONS ==================
 //if you click outside notes, remove it.
 $(window).on("click", function (e) {
   if (event.target.closest("#notes")) {
     return;
   }else {
-    $("#notes").empty();
+    $(".notes-div").empty();
   }
 });
 

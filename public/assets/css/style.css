@@ -46,12 +46,14 @@ body {
   display: flex;
   -webkit-transition: all .3s;
   transition: all .3s;
+  padding: 5px;
 }
 
 .flex-main .left-side {
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  margin: 5px;
 }
 
 .flex-main .left-side .flex-ul .card {
@@ -62,32 +64,65 @@ body {
   display: flex;
 }
 
+.flex-main .left-side .flex-ul .card .siteLink {
+  text-decoration: none;
+  color: orange;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.flex-main .left-side .flex-ul .card .siteLink:hover {
+  text-decoration: underline;
+  text-decoration: none;
+  border: solid 2px #FF9800;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #FF9800;
+  color: white;
+}
+
 .flex-main .left-side .flex-ul .card .article-container {
   padding: 20px;
 }
 
 .flex-main .left-side .flex-ul .card .article-container .notes-container {
-  background: white;
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.flex-main .left-side .flex-ul .card .article-container .notes-container a {
+  text-decoration: none;
 }
 
 .flex-main .left-side .flex-ul .card .article-container .notes-container .circle {
-  margin-top: 20px;
-  position: relative;
-  background: cyan;
-  height: 2em;
-  width: 2em;
+  width: 5em;
+  padding: 10px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
   border-radius: 50%;
+  background: #27fafa;
   -webkit-transition: all .3s;
   transition: all .3s;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
 }
 
 .flex-main .left-side .flex-ul .card .article-container .notes-container .circle:hover {
   cursor: pointer;
-  background: #27fafa;
-  border: 3px solid rebeccapurple;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  color: white;
 }
 
 .flex-main .left-side .flex-ul .card img {
@@ -100,6 +135,54 @@ body {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  margin: 5px;
+}
+
+.flex-main .right-side #notes {
+  background: #F9F9F9;
+  padding: 25px;
+  margin: 20px 0;
+  -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.flex-main .right-side #notes h2 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.flex-main .right-side #notes input {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+.flex-main .right-side #notes textarea {
+  height: 100px;
+  width: 100%;
+  border: none;
+  resize: none;
+}
+
+.flex-main .right-side #notes #saveNote {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #4CAF50;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.flex-main .right-side #notes #saveNote:hover {
+  background: #43A047;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .flex-main .right-side .note-container {
@@ -110,7 +193,10 @@ body {
 }
 
 .flex-main .right-side .note-container h2 {
-  margin: 0;
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .flex-main .right-side .note-container #x-btn {
