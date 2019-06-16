@@ -1,6 +1,13 @@
 body {
   margin: 0px;
-  background: #dadada;
+  background: #1d1e22;
+}
+
+header {
+  background: url("../images/crossline-lines.png") no-repeat center center fixed;
+  background-position: bottom 100px top;
+  background-color: #d4d4dc;
+  color: black;
 }
 
 .article {
@@ -13,13 +20,52 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  background-color: #fdc51c;
+}
+
+.btn-section a {
+  text-decoration: none;
+}
+
+.btn-section .scrapeBtn,
+.btn-section .savedBtn {
+  font-size: 1.2em;
+  height: 3em;
+  background: #f8c836;
+  margin-right: 5px;
+  border: none;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transform: skew(-20deg);
+          transform: skew(-20deg);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 20px;
+  color: white;
 }
 
-.btn-section .scrapeBtn {
+.btn-section .scrapeBtn span,
+.btn-section .savedBtn span {
+  -webkit-transform: skewX(20deg);
+          transform: skewX(20deg);
+}
+
+.btn-section .scrapeBtn:hover,
+.btn-section .savedBtn:hover {
+  cursor: pointer;
+  background: #393f4d;
+  color: white;
+}
+
+.btn-section .homeBtn {
   margin-top: 3em;
   font-size: 1.2em;
   height: 3em;
@@ -30,7 +76,7 @@ body {
   margin: 0px;
 }
 
-.btn-section .scrapeBtn:hover {
+.btn-section .homeBtn:hover {
   cursor: pointer;
   background: #ffe601;
 }
@@ -38,6 +84,7 @@ body {
 .flex-container {
   text-align: center;
   font-size: 3em;
+  margin: 0px;
 }
 
 .flex-main {

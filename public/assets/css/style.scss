@@ -1,6 +1,13 @@
 body {
     margin: 0px;
-    background: rgb(218, 218, 218);
+    background: #1d1e22;
+}
+
+header {
+    background: url("../images/crossline-lines.png")  no-repeat center center fixed; 
+    background-position: bottom 100px top;
+    background-color: #d4d4dc;
+    color: black;
 }
 
 .article {
@@ -11,36 +18,38 @@ body {
 
 .btn-section {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    justify-content: flex-end;
+    background-color: #fdc51c;
 
-    .scrapeBtn {
-        margin-top: 3em;
-        font-size: 1.2em;
-        height: 3em;
-        background: #FF9800;
-        border: none;
-        transition: all .3s;
-        margin: 0px;
+    a {
+        text-decoration: none;
+    }
 
-        &:hover {
-            cursor: pointer;
-            background: rgb(255, 230, 1);
-        }
 
+    .scrapeBtn,
     .savedBtn {
-        margin-top: 3em;
         font-size: 1.2em;
         height: 3em;
-        background: #FF9800;
+        background: #f8c836;
+        margin-right: 5px;
         border: none;
+        transform-origin: top;
+        transform: skew(-20deg);
         transition: all .3s;
-        margin: 0px;
+        display: flex;
+        justify-content: center;
+        color: white;
+
+        span {
+            transform: skewX(20deg);
+        }
 
         &:hover {
             cursor: pointer;
-            background: rgb(255, 230, 1);
+            background: #393f4d;
+            color: white;
         }
+    }
 
     .homeBtn {
         margin-top: 3em;
@@ -56,12 +65,12 @@ body {
             background: rgb(255, 230, 1);
         }
     }
-
 }
 
 .flex-container {
     text-align: center;
     font-size: 3em;
+    margin: 0px;
 }
 
 .flex-main {
